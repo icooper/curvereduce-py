@@ -29,7 +29,7 @@ jobs:
 
       - name: Set test package version
         env:
-          VERSION_SUFFIX: ${{ github.run_id }}
+          VERSION_SUFFIX: dev${{ github.run_number }}
         run: |
           cp pyproject.toml pyproject.toml.original
           sed -r "s/version = \"(.+)\"/version = \"\1-$VERSION_SUFFIX\"/" pyproject.toml.original > pyproject.toml 
