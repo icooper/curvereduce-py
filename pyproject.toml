@@ -1,0 +1,31 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "curvereduce"
+version = "1.0.0"
+authors = [
+    { name="Ian Cooper", email="icooper@noreply.github.com" }
+]
+description = "Curve simplification per Ramer-Douglas-Peucker."
+readme = "README.md"
+license = { file="LICENSE" }
+requires-python = ">=3.7"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent"
+]
+
+[project.urls]
+"Homepage" = "https://github.com/icooper/curvereduce-py"
+"Issues" = "https://github.com/icooper/curvereduce-py/issues"
+
+[tool.hatch.build]
+exclude = [
+    ".git",
+    ".github",
+    ".pytest_cache",
+    ".vscode"
+]
