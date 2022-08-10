@@ -2,6 +2,8 @@
 
 This is an implementation of the [Ramer-Douglas-Peucker curve simplification algorithm](https://en.wikipedia.org/wiki/Ramer%E2%80%93Douglas%E2%80%93Peucker_algorithm) in Python.
 
+[![codecov](https://codecov.io/gh/icooper/curvereduce-py/branch/main/graph/badge.svg?token=YA7H1I6Z4E)](https://codecov.io/gh/icooper/curvereduce-py)
+
 ## Usage
 
 Install from the PyPi package repository using `pip install curvereduce`.
