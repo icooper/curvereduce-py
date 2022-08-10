@@ -1,7 +1,8 @@
-name: Test PyPI
+name: PyPI
 on:
-  pull_request:
-  workflow_dispatch:
+  push:
+    tags:
+      - "v*"
     
 jobs:
   build-and-publish:
@@ -28,14 +29,14 @@ jobs:
         with:
           files: ./coverage.xml
 
-      - name: Set test package version
+      - name: Set package version
         run: |
           cp pyproject.toml pyproject.toml.original
-          sed -r "s/version = \"(.+)\"/version = \"\1.dev${{github.run_number}}\"/" pyproject.toml.original > pyproject.toml 
+          sed -r "s/version = \".+\"/version = \"${GITHUB_REF#refs/tags/v}\"/" pyproject.toml.original > pyproject.toml 
           rm pyproject.toml.original
           grep version pyproject.toml
 
-      - name: Build test package
+      - name: Build package
         run: |
           python -m build
           python -m twine check dist/*
@@ -45,6 +46,5 @@ jobs:
         with:
           skip_existing: true
           verify_metadata: false
-          repository_url: https://test.pypi.org/legacy/
           user: __token__
-          password: ${{ secrets.TESTPYPI_API_TOKEN}}
+          password: ${{ secrets.PYPI_API_TOKEN}}
