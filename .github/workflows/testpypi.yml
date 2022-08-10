@@ -17,7 +17,7 @@ jobs:
       - name: Install tooling
         run: |
           python -m pip install --upgrade pip
-          pip install pytest build
+          pip install pytest pytest-cov build
 
       - name: Test with pytest
         run: |
