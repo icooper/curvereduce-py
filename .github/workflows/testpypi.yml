@@ -20,15 +20,21 @@ jobs:
           pip install pytest pytest-cov build
 
       - name: Test with pytest
-        run: |
-          python -m pytest --cov --cov-report=xml
+        run: python -m pytest --cov --cov-report=xml
 
       - name: Upload coverage
         uses: codecov/codecov-action@v3
         with:
           files: ./coverage.xml
 
-      - name: Build package
+      - name: Set test package version
+        env:
+          VERSION_SUFFIX: ${{ github.run_id }}
         run: |
-          python -m build
+          cp pyproject.toml pyproject.toml.original
+          sed -r "s/version = \"(.+)\"/version = \"\1-$VERSION_SUFFIX\"/" pyproject.toml.original > pyproject.toml 
+          rm pyproject.toml.original
+
+      - name: Build test package
+        run: python -m build
   
