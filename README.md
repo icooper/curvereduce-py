@@ -2,6 +2,7 @@
 
 This is an implementation of the [Ramer-Douglas-Peucker curve simplification algorithm](https://en.wikipedia.org/wiki/Ramer%E2%80%93Douglas%E2%80%93Peucker_algorithm) in Python.
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/39fdd9372cd24acfa5802a68cf7af9ec)](https://app.codacy.com/gh/icooper/curvereduce-py?utm_source=github.com&utm_medium=referral&utm_content=icooper/curvereduce-py&utm_campaign=Badge_Grade_Settings)
 [![codecov](https://codecov.io/gh/icooper/curvereduce-py/branch/main/graph/badge.svg?token=YA7H1I6Z4E)](https://codecov.io/gh/icooper/curvereduce-py)
 
 ## Usage
