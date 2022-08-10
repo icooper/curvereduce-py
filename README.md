@@ -14,9 +14,9 @@ Install from the PyPI package repository using `pip install curvereduce`.
 from curvereduce import simplify_curve, simplify_curve_to
 
 points = [
-    (1.20401E-09, -0.00120428 ),
-    (0.018, 0.241799 ),
-    (0.1044, 1.34392 ),
+    (1.20401E-09, -0.00120428),
+    (0.018, 0.241799),
+    (0.1044, 1.34392),
     ...
 ]
 
