@@ -2,7 +2,9 @@
 # pylint: disable=invalid-name
 
 from math import atan, cos, pi, sqrt
+
 from pytest import approx
+
 from curvereduce import shortest_distance
 
 

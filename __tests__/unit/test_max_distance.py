@@ -2,7 +2,9 @@
 # pylint: disable=invalid-name
 
 from math import sqrt
+
 from pytest import approx
+
 from curvereduce import max_distance, perpendicular_distance
 
 

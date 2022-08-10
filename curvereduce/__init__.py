@@ -1,8 +1,8 @@
-"""Library to simplify a 2-dimensional curve using the Ramer-Douglas-Peucker algorithm."""
+"""Library to simplify a 2-dimensional curve using the Ramer-Douglas-Peucker
+algorithm."""
 # pylint: disable=invalid-name
 
 import sys
-
 from math import sqrt
 from typing import Callable, List, Tuple
 
@@ -177,33 +177,33 @@ def binary_search(
 
     # set up our initial left, right, and middle points
 
-    l = int(minimum)
-    r = int(maximum)
-    m = int((l + r) / 2)
+    left = int(minimum)
+    right = int(maximum)
+    middle = int((left + right) / 2)
 
     # loop as long as we have something to test
-    while r - l >= 1:
+    while right - left >= 1:
 
         # check the middle point
-        t = test(m)
+        tested = test(middle)
 
         # it's on target, break out of the loop
-        if t == 0:
+        if tested == 0:
             break
 
         # it's low, use the lower half of our search range
-        if t < 0:
-            r = m - 1
+        if tested < 0:
+            right = middle - 1
 
         # it's high, use the upper half of our search range
         else:
-            l = m + 1
+            left = middle + 1
 
         # recalculate the middle point
-        m = int((l + r) / 2)
+        middle = int((left + right) / 2)
 
     # when we get here, `m` is as close to the target as possible
-    return m
+    return middle
 
 
 def simplify_curve(

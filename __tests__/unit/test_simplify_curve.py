@@ -2,6 +2,7 @@
 # pylint: disable=invalid-name,redefined-outer-name
 
 from pytest import fixture, raises
+
 from curvereduce import perpendicular_distance, shortest_distance, simplify_curve
 
 
