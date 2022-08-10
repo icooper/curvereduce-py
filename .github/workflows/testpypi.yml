@@ -1,9 +1,12 @@
-name: Test PyPI
+name: Build and publish test package
 on:
   pull_request:
+    branches:
+      - development
+  workflow_dispatch:
     
 jobs:
-  build:
+  build-test-and-publish:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repo
@@ -17,7 +20,7 @@ jobs:
       - name: Install tooling
         run: |
           python -m pip install --upgrade pip
-          pip install pytest pytest-cov build
+          pip install pytest pytest-cov build twine
 
       - name: Test with pytest
         run: python -m pytest --cov --cov-report=xml
@@ -36,5 +39,16 @@ jobs:
           rm pyproject.toml.original
 
       - name: Build test package
-        run: python -m build
+        run: |
+          python -m build
+          python -m twine check dist/*
   
+      - name: Publish test package
+        uses: pypa/gh-action-pypi-publish@release/v1
+        with:
+          skip_existing: true
+          verify_metadata: false
+          repository_url: https://test.pypi.org/legacy/
+          user: __token__
+          password: ${{ secrets.TESTPYPI_API_TOKEN}}
+          
