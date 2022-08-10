@@ -7,7 +7,7 @@ This is an implementation of the [Ramer-Douglas-Peucker curve simplification alg
 
 ## Usage
 
-Install from the PyPi package repository using `pip install curvereduce`.
+Install from the PyPI package repository using `pip install curvereduce`.
 
 ```python
 from curvereduce import simplify_curve, simplify_curve_to
