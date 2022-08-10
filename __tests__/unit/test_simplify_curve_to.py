@@ -2,6 +2,7 @@
 # pylint: disable=invalid-name,redefined-outer-name
 
 from pytest import fixture
+
 from curvereduce import simplify_curve_to
 
 

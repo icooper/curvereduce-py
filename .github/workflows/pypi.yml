@@ -3,7 +3,7 @@ on:
   push:
     tags:
       - "v*"
-    
+
 jobs:
   build-and-publish:
     runs-on: ubuntu-latest
@@ -38,7 +38,7 @@ jobs:
       - name: Set package version
         run: |
           cp pyproject.toml pyproject.toml.original
-          sed -r "s/version = \".+\"/version = \"${GITHUB_REF#refs/tags/v}\"/" pyproject.toml.original > pyproject.toml 
+          sed -r "s/version = \".+\"/version = \"${GITHUB_REF#refs/tags/v}\"/" pyproject.toml.original > pyproject.toml
           rm pyproject.toml.original
           grep version pyproject.toml
 
@@ -46,7 +46,7 @@ jobs:
         run: |
           python -m build
           python -m twine check dist/*
-  
+
       - name: Publish package
         uses: pypa/gh-action-pypi-publish@release/v1
         with:

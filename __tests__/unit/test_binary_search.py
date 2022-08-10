@@ -2,6 +2,7 @@
 # pylint: disable=invalid-name,redefined-outer-name
 
 from pytest import fixture, raises
+
 from curvereduce import binary_search
 
 
@@ -65,13 +66,10 @@ def test_min_greater_than_max():
         binary_search(lambda x: 0, 10, 0)
 
 
-def test_min_equal_to_max(my_list):
+def test_min_equal_to_max():
     """Test binary_search() where the minimum value is equal to the maximum
     value."""
 
-    def test(a):
-        return 7.0 - my_list[a]
-
     expected = 5
-    found = binary_search(test, 5, 5)
+    found = binary_search(None, 5, 5)
     assert found == expected
