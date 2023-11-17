@@ -28,12 +28,6 @@ jobs:
         with:
           files: ./coverage.xml
 
-      - name: Upload coverage (Codacy)
-        uses: codacy/codacy-coverage-reporter-action@v1.3.0
-        with:
-          project-token: ${{ secrets.CODACY_PROJECT_TOKEN }}
-          coverage-reports: coverage.xml
-
       - name: Set test package version
         run: |
           cp pyproject.toml pyproject.toml.original
